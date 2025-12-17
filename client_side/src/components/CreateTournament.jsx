@@ -12,6 +12,7 @@ const CreateTournament = () => {
         date: "",
         status: "Upcoming", // Default status
     });
+    
 
     const [createTournament, { loading, error }] = useMutation(CREATE_TOURNAMENT, {
         onCompleted: () => {

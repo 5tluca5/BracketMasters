@@ -51,7 +51,7 @@ function configureMiddleware() {
   app.use(express.urlencoded({ extended: true }));
 }
 
-// ✅ Authentication middleware
+// Authentication middleware
 function authMiddleware(req, res, next) {
   const token = req.cookies.token;
   if (token) {

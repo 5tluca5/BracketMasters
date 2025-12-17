@@ -3,6 +3,7 @@ import { useMutation, gql } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import CREATE_USER from "../mutations/createUser";
+import GET_PLAYERS from "../mutations/getPlayers";
 
 const CreateUser = () => {
     const navigate = useNavigate();
@@ -13,6 +14,7 @@ const CreateUser = () => {
     });
 
     const [createUser, { loading, error }] = useMutation(CREATE_USER, {
+        refetchQueries: [{ query: GET_PLAYERS }],
         onCompleted: () => {
 
             toast.success("User created successfully!");
